@@ -1,0 +1,410 @@
+{% extends 'base/dashboard/dashboard_base.html' %}
+
+{% block dashboard %}
+
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Mon Profile</h1>
+              </div><!-- /.col -->
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="{% url 'projetapp:home' %}">Home</a></li>
+                  <li class="breadcrumb-item active">Mon Profile</li>
+                </ol>
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+    
+        <!-- Info boxes -->
+        <div class="row" style="margin: 0px 20px">
+    
+            <div class="col-md-7">
+                <!-- Widget: user widget style 2 -->
+                <div class="card card-widget widget-user-2">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header bg-warning">
+                        <div class="widget-user-image">
+                            <img class="img-circle elevation-2" src="/static/dashboard/dist/img/user7-128x128.jpg" alt="User Avatar">
+                        </div>
+                        <!-- /.widget-user-image -->
+                        <h3 class="widget-user-username">Maxwel Dago</h3>
+                        <h5 class="widget-user-desc">Developpeur Front</h5>
+                    </div>
+                    <div class="card-footer p-0">
+                    <ul class="nav flex-column">
+                        <li class="nav-item" style="padding: 8px 0px; font-size:18px">
+                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-lg">
+                            Projets  <span class="float-right badge bg-primary">17</span>
+                        </a>
+                        </li>
+                        <li class="nav-item" style="padding: 8px 0px; font-size:18px">
+                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-lg">
+                            Projets Terminés <span class="float-right badge bg-info">5</span>
+                        </a>
+                        </li>
+                        <li class="nav-item" style="padding: 8px 0px; font-size:18px">
+                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-lg">
+                            Projets en cours ... <span class="float-right badge bg-success">12</span>
+                        </a>
+                        </li>
+                        <li class="nav-item" style="padding: 8px 0px; font-size:18px">
+                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-lg">
+                            Commits Totals <span class="float-right badge bg-danger">842</span>
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                <!-- /.widget-user -->
+            </div>
+            <div class="col-md-5">
+                <!-- Custom tabs (Charts with tabs)-->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-chart-pie mr-1"></i>Graph ici</h3>
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content p-0">
+                        <!-- Echarts -->
+                            <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
+                                <div id="main" style="width: 100%;height:300px;"></div>                      
+                            </div>
+                        </div>
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+    
+            </div>
+            <!-- /.col -->
+    
+        </div>
+    
+        <div class="row" style="margin: 0px 20px">
+            <div class="col-12">
+        
+                <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Mes resultats</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Projets</th>
+                        <th>Participants</th>
+                        <th>Commits</th>
+                        <th>Progression</th>
+                        <th>Statut</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+                                </div>
+                            </div>
+                            <span class="progress-description">25% </span>
+                        </td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                </div>
+                            </div>
+                            <span class="progress-description">50% </span>
+                        </td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                                </div>
+                            </div>
+                            <span class="progress-description">65% </span>
+                        </td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                                </div>
+                            </div>
+                            <span class="progress-description">75% </span>
+                        </td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                </div>
+                            </div>
+                            <span class="progress-description">60% </span>
+                        </td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-danger progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                </div>
+                            </div>
+                            <span class="progress-description">100% </span>
+                        </td>
+                        <td>Oui</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-danger progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                </div>
+                            </div>
+                            <span class="progress-description">100% </span>
+                        </td>
+                        <td>Oui</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-danger progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                </div>
+                            </div>
+                            <span class="progress-description">100% </span>
+                        </td>
+                        <td>Oui</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-danger progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                </div>
+                            </div>
+                            <span class="progress-description">100% </span>
+                        </td>
+                        <td>Oui</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-danger progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                </div>
+                            </div>
+                            <span class="progress-description">100% </span>
+                        </td>
+                        <td>Oui</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-danger progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                </div>
+                            </div>
+                            <span class="progress-description">100% </span>
+                        </td>
+                        <td>Oui</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-danger progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                </div>
+                            </div>
+                            <span class="progress-description">100% </span>
+                        </td>
+                        <td>Oui</td>
+                    </tr>
+                    <tr>
+                        <td>09/11/2019</td>
+                        <td>Gestions de projet NaN</td>
+                        <td>4</td>
+                        <td>15 Commits (25% TCommits )</td>
+                        <td>
+                            <div class="progress" style="height: 0.6em!important">
+                                <div class="progress-bar bg-danger progress-bar-striped" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                </div>
+                            </div>
+                            <span class="progress-description">100% </span>
+                        </td>
+                        <td>Oui</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Date</th>
+                        <th>Projets</th>
+                        <th>Participants</th>
+                        <th>Commits</th>
+                        <th>Progression</th>
+                        <th>Statut</th>
+                    </tr>
+                    </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    
+        <div class="modal fade" id="modal-lg">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Condensed Full Width Table</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th>Projet</th>
+                                    <th>Commits</th>
+                                    <th>Progression</th>
+                                    <th style="width: 40px">Label</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Update software</td>
+                                    <td>15 / 85 commits</td>
+                                    <td>
+                                        <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-danger">55%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>2.</td>
+                                    <td>Clean database</td>
+                                    <td>15 / 85 commits</td>
+                                    <td>
+                                        <div class="progress progress-xs">
+                                        <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-warning">70%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>3.</td>
+                                    <td>Cron job running</td>
+                                    <td>15 / 85 commits</td>
+                                    <td>
+                                        <div class="progress progress-xs progress-striped active">
+                                        <div class="progress-bar bg-primary" style="width: 30%"></div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-primary">30%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>4.</td>
+                                    <td>Fix and squish bugs</td>
+                                    <td>15 / 85 commits</td>
+                                    <td>
+                                        <div class="progress progress-xs progress-striped active">
+                                        <div class="progress-bar bg-success" style="width: 90%"></div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-success">90%</span></td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </div>
+    <!-- ./wrapper -->
+    
+    
+{% endblock %}

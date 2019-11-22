@@ -26,6 +26,7 @@ urlpatterns = [
     path('detailuser/', views.detailuser, name='detailuser'),
     path('projets/', views.projet, name='projet'),
     path('projetdetail/', views.projetdetail, name='projetdetail'),
+    path('commit/', views.commit, name='commit'),
    
 
 ]

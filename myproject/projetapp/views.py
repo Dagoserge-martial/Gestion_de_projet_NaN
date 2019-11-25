@@ -16,3 +16,6 @@ def detailuser(request):
 def projetdetail(request):
     return render(request, 'page/dashboard/projetdetail.html')
 
+def commit(request):
+    return render(request, 'page/dashboard/commit.html')
+

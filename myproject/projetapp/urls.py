@@ -27,6 +27,8 @@ urlpatterns = [
     path('projets/', views.projet, name='projet'),
     path('projetdetail/', views.projetdetail, name='projetdetail'),
     path('commit/', views.commit, name='commit'),
+    path('commits/', views.commits, name='commits'),
+    path('new_project/', views.newproject, name='newproject'),
    
 
 ]

@@ -19,3 +19,9 @@ def projetdetail(request):
 def commit(request):
     return render(request, 'page/dashboard/commit.html')
 
+def commits(request):
+    return render(request, 'page/dashboard/commits.html')
+
+def newproject(request):
+    return render(request, 'page/dashboard/createproject.html')
+

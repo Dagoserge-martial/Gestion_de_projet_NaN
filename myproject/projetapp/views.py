@@ -25,3 +25,6 @@ def commits(request):
 def newproject(request):
     return render(request, 'page/dashboard/createproject.html')
 
+def newusetask(request):
+    return render(request, 'page/dashboard/addusertache.html')
+

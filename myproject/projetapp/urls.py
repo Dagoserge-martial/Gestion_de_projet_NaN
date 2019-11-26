@@ -30,6 +30,7 @@ urlpatterns = [
     path('commits/', views.commits, name='commits'),
     path('new_project/', views.newproject, name='newproject'),
     path('user_task/', views.newusetask, name='usertask'),
+    path('login/', views.connexion, name='connexion'),
    
 
 ]

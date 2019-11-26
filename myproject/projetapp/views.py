@@ -28,3 +28,6 @@ def newproject(request):
 def newusetask(request):
     return render(request, 'page/dashboard/addusertache.html')
 
+def connexion(request):
+    return render(request, 'page/dashboard/connexion.html')
+

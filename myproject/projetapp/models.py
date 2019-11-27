@@ -81,9 +81,9 @@ class Profile(models.Model):
         if created:
             Profile.objects.create(user=instance)
 
-    @receiver(post_save, sender=User)
-    def save_user_profile(sender, instance, created, **kwargs):
-        instance.profile.save()
+    # @receiver(post_save, sender=User)
+    # def save_user_profile(sender, instance, created, **kwargs):
+    #     instance.profile.save()
 
 class TacheUser(models.Model):
     projet = models.ForeignKey(Projet, related_name='user_projet', on_delete=models.CASCADE)
@@ -94,3 +94,15 @@ class TacheUser(models.Model):
     date_add =  models.DateTimeField(auto_now_add=True)
     date_update =  models.DateTimeField(auto_now=True)
 
+# class TacheUser(models.Model):
+#     projet = models.ForeignKey(Projet, related_name='user_projet', on_delete=models.CASCADE)
+#     tache = models.ForeignKey(Tache_projet, related_name='user_tache', on_delete=models.CASCADE)
+#     user = models.ForeignKey(User, related_name='user_tachecommit', on_delete=models.CASCADE)
+
+#     statut = models.BooleanField(default=True)
+#     date_add =  models.DateTimeField(auto_now_add=True)
+#     date_update =  models.DateTimeField(auto_now=True)
+
+
+
+#python manage.py admin_generator projetapp >> projetapp/admin.py

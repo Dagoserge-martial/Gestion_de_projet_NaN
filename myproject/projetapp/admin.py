@@ -6,7 +6,7 @@ from django.contrib import admin
 
 from . import models
 
-
+'''
 class ProjetAdmin(admin.ModelAdmin):
 
     list_display = (
@@ -176,3 +176,5 @@ _register(models.Tache_projet, Tache_projetAdmin)
 _register(models.Commit, CommitAdmin)
 _register(models.Profile, ProfileAdmin)
 _register(models.TacheUser, TacheUserAdmin)
+
+'''

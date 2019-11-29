@@ -2,13 +2,22 @@ from django.shortcuts import render
 
 # Create your views here.
 def home(request):
-    return render(request, 'page/dashboard/dashboard.html')
+    data = {
+        'active_dash': 'active'
+    }
+    return render(request, 'page/dashboard/dashboard.html', data)
 
 def projet(request):
-    return render(request, 'page/dashboard/list_projet.html')
+    data = {
+        'active_projets': 'active'
+    }
+    return render(request, 'page/dashboard/list_projet.html', data)
 
 def list_user(request):
-    return render(request, 'page/dashboard/users.html')
+    data = {
+        'active_users': 'active'
+    }
+    return render(request, 'page/dashboard/users.html', data)
 
 def detailuser(request):
     return render(request, 'page/dashboard/detail_user.html')

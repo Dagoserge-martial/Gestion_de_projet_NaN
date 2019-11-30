@@ -92,8 +92,8 @@
                     </div>
                     </div>
                     <div class="card-body">
-                    <div class="chart">
-                        <table class="table table-hover table-striped">
+                    <div class="chart" style="overflow-X: scroll">
+                        <table class="table table-hover table-striped" >
                             <thead>
                                 <tr>
                                     <th>UserImg</th>
@@ -436,7 +436,7 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-                  <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add User</button>
+                  <a href="{% url 'projetapp:usertask' %}" type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add User</a>
               </div>
           </div>
       </div>

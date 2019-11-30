@@ -6,26 +6,26 @@
   <title>AdminLTE 3 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="/static/dashboard/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="/static/dashboard/plugins/daterangepicker/daterangepicker.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="/static/dashboard/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Bootstrap Color Picker -->
+  <link rel="stylesheet" href="/static/dashboard/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="/static/dashboard/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="/static/dashboard/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="/static/dashboard/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="/static/dashboard/plugins/jqvmap/jqvmap.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="/static/dashboard/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="/static/dashboard/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Bootstrap4 Duallistbox -->
+  <link rel="stylesheet" href="/static/dashboard/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/static/dashboard/dist/css/adminlte.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="/static/dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="/static/dashboard/plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="/static/dashboard/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style>
@@ -174,7 +174,7 @@
           <img src="/static/dashboard/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{% url 'projetapp:detailuser' %}" class="d-block">John Dago</a>
+          <a href="{% url 'projetapp:detailuser' %}" class="d-block">Maxwel Dago</a>
         </div>
       </div>
 
@@ -193,7 +193,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{% url 'projetapp:home' %}" class="nav-link {{ active_dash }}">
+                <a href="{% url 'projetapp:home' %}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
@@ -210,13 +210,13 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item {{ active_projets }}">
+              <li class="nav-item">
                 <a href="{% url 'projetapp:projet' %}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Projets</p>
                 </a>
               </li>
-                <li class="nav-item {{ active_users }}">
+                <li class="nav-item">
                     <a href="{% url 'projetapp:list_user' %}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p> Users</p>
@@ -230,11 +230,115 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
-
-    {% block dashboard %}
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Tache User</h1>
+              </div><!-- /.col -->
+              <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="{% url 'projetapp:home' %}">Home</a></li>
+                  <li class="breadcrumb-item active">Tache User</li>
+                </ol>
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
     
-    {% endblock dashboard %}
+        <!-- Info boxes -->
+        <div class="row" style="margin: 0px 20px">
+            <div class="col-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Formulaire</h3>
+      
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
+                  </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                           
+                            <div class="form-group">
+                                    <label>Participants</label>
+                                    <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                      <option>Alabama</option>
+                                      <option>Alaska</option>
+                                      <option>California</option>
+                                      <option>Delaware</option>
+                                      <option>Tennessee</option>
+                                      <option>Texas</option>
+                                      <option>Washington</option>
+                                    </select>
+                                  </div>
+                                  <!-- /.form-group -->
+                        </div>
+
+                        
+                       <!-- Date and time range -->
+                <div class="form-group">
+                        <label>Date debut et fin de tâches </label>
+      
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-clock"></i></span>
+                          </div>
+                          <input type="text" class="form-control float-right" id="reservationtime">
+                        </div>
+                        <!-- /.input group -->
+                      </div>
+                      <!-- /.form group -->
+
+                      <div class="form-group">
+                        <label>Affecter tâche</label>
+                        <select class="duallistbox" multiple="multiple">
+                          <option selected>Tache 1</option>
+                          <option>Tache 2</option>
+                          <option>Tache 3</option>
+                          <option>Tache 4</option>
+                          <option>Tache 5</option>
+                          <option>Tache 6</option>
+                          <option>Tache 7</option>
+                        </select>
+                      </div>
+
+                      <!-- /.form-group -->
+
+
+                    </div>
+                    <!-- /.col -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                        <div class="row">
+                        <div class="col-12">
+                            <a href="#" class="btn btn-secondary">Cancel</a>
+                            <input type="submit" value="Create " class="btn btn-success float-right">
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <!-- /.card -->
+            </div>
+
+    
+        </div>
+    
+       
+    </div>
+    <!-- ./wrapper -->
+    
 
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -252,92 +356,100 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery -->
 <script src="/static/dashboard/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="/static/dashboard/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
 <!-- Bootstrap 4 -->
 <script src="/static/dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="/static/dashboard/plugins/chart.js/Chart.min.js"></script>
-<!-- bs-custom-file-input -->
-<script src="/static/dashboard/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-<!-- Sparkline -->
-<script src="/static/dashboard/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="/static/dashboard/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="/static/dashboard/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="/static/dashboard/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
+<!-- Select2 -->
+<script src="/static/dashboard/plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="/static/dashboard/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
 <script src="/static/dashboard/plugins/moment/moment.min.js"></script>
+<script src="/static/dashboard/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+<!-- date-range-picker -->
 <script src="/static/dashboard/plugins/daterangepicker/daterangepicker.js"></script>
-
-<!-- DataTables -->
-<script src="/static/dashboard/plugins/datatables/jquery.dataTables.js"></script>
-<script src="/static/dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- bootstrap color picker -->
+<script src="/static/dashboard/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="/static/dashboard/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="/static/dashboard/plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="/static/dashboard/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="/static/dashboard/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- AdminLTE App -->
-<script src="/static/dashboard/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/static/dashboard/dist/js/pages/dashboard.js"></script>
+<script src="/static/dashboard/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/static/dashboard/dist/js/demo.js"></script>
-<script src="/static/dashboard/echarts.min.js"></script>
-<script type="text/javascript">
-  // based on prepared DOM, initialize echarts instance
-  var myChart = echarts.init(document.getElementById('main'));
-
-  // specify chart configuration item and data
-  var option = {
-      title: {
-          text: 'ECharts entry example'
-      },
-      tooltip: {},
-      legend: {
-          data:['Sales']
-      },
-      xAxis: {
-          data: ["shirt","cardign","chiffon shirt","pants","heels","socks"]
-      },
-      yAxis: {},
-      series: [{
-          name: 'Sales',
-          type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
-      }]
-  };
-
-  // use configuration item and data specified to show chart
-  myChart.setOption(option);
-</script>
+<!-- Page script -->
 <script>
-    $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        });
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+    
+    //Bootstrap Duallistbox
+    $('.duallistbox').bootstrapDualListbox()
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
     });
+
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+
+  })
 </script>
-<script type="text/javascript">
-  $(document).ready(function () {
-    bsCustomFileInput.init();
-  });
-  </script>
 </body>
 </html>
+
+

@@ -24,7 +24,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
               <h3 class="card-title">Projet</h3>
@@ -36,7 +36,7 @@
               </div>
             </div>
             <div class="card-body">
-              <form action="">
+              <form action="" method="POST">
               <div class="form-group">
                 <label for="inputName">Titre du projet</label>
                 <input type="text" id="inputName" class="form-control">
@@ -46,134 +46,48 @@
                 <textarea id="inputDescription" class="form-control" rows="4"></textarea>
               </div>
             
-              <div class="form-group">
-                <label for="inputClientCompany">Entreprise Cliente </label>
-                <input type="text" id="inputClientCompany" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputProjectLeader">Chef de Pojet</label>
-                <input type="text" id="inputProjectLeader" class="form-control">
-              </div>
-              <button type="submit">send</button>
+              <div class="row form-group">
+                <div class="col-md-4">
+                  <label for="inputClientCompany">Entreprise Cliente </label>
+                  <select class="form-control select2bs4" style="width: 100%;">
+                    <option selected="selected" disabled>Selectionnez</option>
+                    {% for client in clt %}
+                    <option value="{{ client.nom }}">{{ client.nom }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="inputEstimatedBudget">Estimation du budget</label>
+                  <input type="number" id="inputEstimatedBudget" class="form-control">
+                </div>
+                <div class="col-md-4">
+                  <label for="inputSpentBudget">Total depenses</label>
+                  <input type="number" id="inputSpentBudget" class="form-control">
+                </div>
+              </div><br>
+                <div class="card-header">
+                  <h3 class="card-title">Periode</h3>
+                </div>
+                <div class="row form-group mt-3">
+                  <div class="col-md-6">
+                    <label for="datedebut">Date de debut</label>
+                    <input type="date" id="datedebut" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="datedefin">Date de Fin</label>
+                    <input type="date" id="datedefin" class="form-control">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <input type="submit" value="Create " class="btn btn-success float-right">
+                </div>
               </form>
             </div>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
-          <div class="card card-default">
-            <div class="card-header">
-              <h3 class="card-title">Participants</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
-              </div>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Chef de projet</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
-                      <option selected="selected">Alabama</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
-                    </select>
-                  </div>
-                
-                </div>
-                <!-- /.col -->
-                <div class="col-md-6">
-
-                  <div class="form-group">
-                    <label>Multiple</label>
-                    <select class="duallistbox" multiple="multiple">
-                      <option selected>Alabama</option>
-                      <option>Alaska</o ption>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
-                    </select>
-                  </div>
-                
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-           
-          </div>
-          <!-- /.card -->
-        </div>
-
-        <div class="col-md-6">
-          <div class="card card-secondary">
-            <div class="card-header">
-              <h3 class="card-title">Budget</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fas fa-minus"></i></button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label for="inputEstimatedBudget">Estimation du budget</label>
-                <input type="number" id="inputEstimatedBudget" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputSpentBudget">Total depenses</label>
-                <input type="number" id="inputSpentBudget" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputEstimatedDuration">Estimation de la durée du projet</label>
-                <input type="number" id="inputEstimatedDuration" class="form-control">
-              </div>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-          <div class="card card-secondary">
-            <div class="card-header">
-              <h3 class="card-title">Periode</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fas fa-minus"></i></button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label for="datedebut">Date de debut</label>
-                <input type="date" id="datedebut" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="datedefin">Date de Fin</label>
-                <input type="date" id="datedefin" class="form-control">
-              </div>
-            
-              <div class="form-group">
-                <label for="inputEstimatedDuration">Estimation de la durée du projet</label>
-                <input type="number" id="inputEstimatedDuration" class="form-control">
-              </div>
-            </div>
-            <!-- /.card-body -->
-          </div>
         </div>
         
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <a href="#" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Create new Porject" class="btn btn-success float-right">
-        </div>
       </div>
     </section>
     <!-- /.content -->

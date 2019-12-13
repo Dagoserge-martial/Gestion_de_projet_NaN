@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',
+    'colorfield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'projetapp.apps.ProjetappConfig',
+    'appprojet.apps.AppprojetConfig',
     'django_admin_generator',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
